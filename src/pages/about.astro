@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Himanshu Singh" description="About Himanshu Singh, a Lead Software Engineer focused on distributed systems, streaming infrastructure, platform engineering, cloud, and Kubernetes.">
+  <section class="page-header">
+    <div class="container reading">
+      <p class="eyebrow">About</p>
+      <h1>Platform engineering for reliable distributed systems.</h1>
+      <p class="lead">I am a Lead Software Engineer focused on distributed systems, streaming infrastructure, and platform engineering.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-column grid">
+      <div class="prose reading">
+        <h2>Professional story</h2>
+        <p>At JP Morgan Chase, I worked deeply in the Kafka ecosystem: Kafka Connect control planes, cluster orchestration, canary health checks, certificate automation, AWS MSK migration, Debezium CDC pipelines, and PostgreSQL migration support.</p>
+        <p>The common thread in that work is turning repeated infrastructure pain into reusable platform capabilities. I have reduced data-source migration effort by 80%, cut Kafka build and patch workflows from 2 days to 2 hours, reduced namespace migration from 15 days to 1 hour, and built health signals used by 12,000+ applications for DR failover.</p>
+        <p>At Microsoft Security, I work on secured, ephemeral sandbox platforms for security researchers and multicloud secured Kubernetes infrastructure. I am looking for senior, lead, or staff platform/infrastructure engineering roles where I can build reliable distributed systems, cloud platforms, and developer-facing infrastructure at scale.</p>
+      </div>
+      <aside class="card stack" aria-labelledby="about-focus">
+        <h2 id="about-focus">Focus areas</h2>
+        <ul class="split-list">
+          <li><strong>Distributed systems &amp; streaming infrastructure</strong><br /><span class="muted">Kafka Connect control planes, Kafka cluster orchestration, canary health checks, and AWS MSK migration.</span></li>
+          <li><strong>Platform automation</strong><br /><span class="muted">Reusable workflows that cut migration and maintenance effort from days to hours or minutes.</span></li>
+          <li><strong>Secure cloud infrastructure</strong><br /><span class="muted">Secured sandbox platforms, multicloud Kubernetes, Terraform, Docker, AWS, GCP, Azure, and infrastructure-as-code.</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

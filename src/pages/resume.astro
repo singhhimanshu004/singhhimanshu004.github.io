@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const skills = [
+  { group: 'Languages', items: 'Python, Java, C#, Shell, JavaScript, TypeScript, Angular' },
+  { group: 'OS', items: 'Linux, macOS, Windows, Unix' },
+  { group: 'Messaging/Streaming', items: 'Kafka, Kafka Connect, Kafka Streams' },
+  { group: 'Cloud/Containers', items: 'AWS, GCP, Azure, PCF, Docker, Kubernetes' },
+  { group: 'IaC', items: 'Terraform, Bicep, ARM JSON' },
+  { group: 'Frameworks', items: 'FastAPI, Spring Boot, Flask, Angular, AWS Lambda, API Gateway' },
+  { group: 'AI', items: 'Generative AI, Agentic AI' },
+  { group: 'Databases', items: 'Oracle, PostgreSQL' },
+];
+---
+
+<BaseLayout title="Resume | Himanshu Singh" description="Resume for Himanshu Singh, Lead Software Engineer focused on platform engineering, cloud infrastructure, Kafka, Kubernetes, and automation.">
+  <section class="page-header">
+    <div class="container reading">
+      <p class="eyebrow">Resume</p>
+      <h1>Himanshu Singh</h1>
+      <p class="lead">Lead Software Engineer building secure cloud platforms, Kubernetes infrastructure, and high-scale streaming systems across Microsoft IDC and JP Morgan Chase. Experienced in platform automation, Kafka, Terraform, AWS, GCP, Azure, Docker, and Kubernetes.</p>
+      <div class="button-row">
+        <a class="button button-primary" href="/resume.pdf" download>Download PDF</a>
+        <a class="button" href="/contact/">Contact Himanshu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-column grid">
+      <div class="stack-lg">
+        <section class="card stack" aria-labelledby="experience-heading">
+          <h2 id="experience-heading">Experience</h2>
+          <ul class="split-list">
+            <li class="stack">
+              <div>
+                <h3>Senior Software Engineer</h3>
+                <p class="muted"><strong>Microsoft IDC</strong> · Jan 2025 – Present · Noida, India</p>
+              </div>
+              <ul>
+                <li>Built self-service provisioning for secured, ephemeral, tenant-isolated sandboxes used by security researchers for malware analysis and security research; reduced environment setup from several hours to under 30 minutes.</li>
+                <li>Strengthened research-platform isolation by building sandbox lifecycle management, access boundaries and workload separation, keeping research environments isolated from Microsoft dev and prod tenants.</li>
+                <li>Remediated 30+ S360 security and compliance findings across infrastructure, dependencies, configuration and deployment pipelines.</li>
+                <li>Reduced manual infrastructure delivery effort by 50% by standardizing automation using Terraform, Bicep, ARM JSON, Python, Shell and C#.</li>
+                <li>Standardized secured multicloud Kubernetes cluster delivery by building reusable templates for node-pool segmentation, network topology, workload-identity (WIF) pool separation and pre-built observability components (metrics, logs); delivered the first production cluster for a customer and made further cluster creation repeatable.</li>
+                <li>Baked observability into the cluster template — dashboards, alerts and health checks — to support reliability and availability targets for customer workloads.</li>
+                <li>Leveraged Generative AI and agentic AI to accelerate platform engineering tasks such as code generation, IaC review, test scaffolding and runbook automation; reduced implementation time for repeatable work by 45%.</li>
+                <li>Built AI-assisted security triage and validation loops for S360 remediation and infra changes, moving fixes from investigation to reviewed changes 2–3x faster.</li>
+              </ul>
+            </li>
+            <li class="stack">
+              <div>
+                <h3>Lead Software Engineer</h3>
+                <p class="muted"><strong>JP Morgan Chase</strong> · Jan 2024 – Dec 2024 · Bangalore, KA</p>
+              </div>
+              <ul>
+                <li>Played a major role in facilitating Sybase exit for legacy applications by creating robust pipelines for Debezium CDC connectors.</li>
+                <li>Facilitated data movement to AWS PostgreSQL using JDBC connectors by creating custom config providers to support JPMC-specific authentication mechanisms.</li>
+              </ul>
+            </li>
+            <li class="stack">
+              <div>
+                <h3>Software Engineer III</h3>
+                <p class="muted"><strong>JP Morgan Chase</strong> · Jan 2022 – Dec 2023 · Bangalore, KA</p>
+              </div>
+              <ul>
+                <li>Increased adoption of AWS MSK by 30% in firm by creating a fully managed replication service for migrating data from on-prem clusters to MSK.</li>
+                <li>Reduced time to migrate to new datacenter clusters from 15 days to 1 hour via a fully automated namespace migration pipeline.</li>
+                <li>Coordinated with engineers to evaluate and improve software and hardware interfaces.</li>
+                <li>Reviewed project specs and designed technology solutions meeting or exceeding performance expectations.</li>
+                <li>Designed and developed robust solutions for functionality, scalability, and performance.</li>
+              </ul>
+            </li>
+            <li class="stack">
+              <div>
+                <h3>Software Engineer II</h3>
+                <p class="muted"><strong>JP Morgan Chase</strong> · Jan 2021 – Dec 2021 · Bangalore, KA</p>
+              </div>
+              <ul>
+                <li>Reduced time and resource utilization for data source migration by 80% via Kafka Connect Control Plane supporting 30+ source and sink connectors.</li>
+                <li>Created orchestrator micro-service for build, patch, and maintenance of Kafka clusters; cut build and patch time from 2 days to 2 hours.</li>
+                <li>Developed robust, scalable, modular, API-centric infrastructures.</li>
+                <li>Worked with Kubernetes, Docker, and AWS.</li>
+              </ul>
+            </li>
+            <li class="stack">
+              <div>
+                <h3>Associate</h3>
+                <p class="muted"><strong>JP Morgan Chase</strong> · Jul 2017 – Dec 2020 · Bangalore, KA</p>
+              </div>
+              <ul>
+                <li>Created a monitoring framework for canary health checks on Apache Kafka clusters producing a real-time cluster health index used by 12,000+ applications for failover to DR cluster.</li>
+                <li>Created a pipeline for automatic certificate renewal of Kafka cluster hosts; cut manual time from 1 day to 5 minutes and renews 1,500+ certificates for Linux hosts.</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card stack" aria-labelledby="education-heading">
+          <h2 id="education-heading">Education</h2>
+          <ul class="split-list">
+            <li>
+              <strong>VIT University, Vellore Institute of Technology</strong><br />
+              <span class="muted">B.Tech. Computer Science · Jul 2013 – Jun 2017 · Vellore, India · GPA 8.66/10.0</span>
+            </li>
+            <li>
+              <strong>Central Hindu Boys School</strong><br />
+              <span class="muted">Schooling · 2012 · Varanasi, India</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="stack-lg">
+        <section class="card stack" aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills</h2>
+          <div class="stack">
+            {skills.map((skill) => (
+              <div class="stack">
+                <h3>{skill.group}</h3>
+                <p class="muted">{skill.items}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="card stack" aria-labelledby="certifications-heading">
+          <h2 id="certifications-heading">Certifications</h2>
+          <ul class="split-list">
+            <li><strong>HashiCorp Certified Terraform Associate</strong><br /><span class="muted">Dec 2022</span></li>
+            <li><strong>Certified Kubernetes Application Developer / CKAD</strong><br /><span class="muted">Nov 2022</span></li>
+            <li><strong>AWS Certified Cloud Practitioner</strong><br /><span class="muted">Aug 2022</span></li>
+          </ul>
+        </section>
+
+        <section class="card stack" aria-labelledby="awards-heading">
+          <h2 id="awards-heading">Awards</h2>
+          <ul class="split-list">
+            <li><strong>APAC CEO Award</strong><br /><span class="muted">Aug 2023</span></li>
+            <li><strong>Reward of Excellence</strong><br /><span class="muted">Jul 2020</span></li>
+            <li><strong>Winner, SEP Hackathon</strong><br /><span class="muted">Jul 2018</span></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

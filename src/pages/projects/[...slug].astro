@@ -1,0 +1,57 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id.replace(/\.(md|mdx)$/, '') },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+const { title, description, problem, role, impact, tech, repoUrl, liveUrl } = project.data;
+---
+
+<BaseLayout title={`${title} | Projects | Himanshu Singh`} description={description}>
+  <article>
+    <header class="page-header">
+      <div class="container reading">
+        <p class="eyebrow">Project case study</p>
+        <h1>{title}</h1>
+        <p class="lead">{description}</p>
+        <div class="button-row">
+          {repoUrl && <a class="button" href={repoUrl}>View repo</a>}
+          {liveUrl && <a class="button button-primary" href={liveUrl}>View live</a>}
+          <a class="button" href="/projects/">All projects</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container two-column grid">
+        <div class="prose reading">
+          <h2>Problem</h2>
+          <p>{problem}</p>
+          <h2>Role</h2>
+          <p>{role}</p>
+          <h2>Impact</h2>
+          <p>{impact}</p>
+          <Content />
+        </div>
+        <aside class="card stack" aria-labelledby="stack-heading">
+          <h2 id="stack-heading">Tech stack</h2>
+          <ul class="pill-list">
+            {tech.map((item) => <li class="pill">{item}</li>)}
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

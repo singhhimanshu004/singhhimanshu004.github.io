@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.(md|mdx)$/, '') },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { title, description, pubDate, tags } = post.data;
+const date = pubDate.toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={`${title} | Blog | Himanshu Singh`} description={description}>
+  <article>
+    <header class="page-header">
+      <div class="container reading">
+        <p class="eyebrow">Blog post</p>
+        <h1>{title}</h1>
+        <p class="lead">{description}</p>
+        <p class="subtle"><time datetime={pubDate.toISOString()}>{date}</time></p>
+        {tags.length > 0 && (
+          <ul class="pill-list" aria-label="Post tags">
+            {tags.map((tag) => <li class="pill">{tag}</li>)}
+          </ul>
+        )}
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container prose reading">
+        <Content />
+      </div>
+    </section>
+  </article>
+</BaseLayout>

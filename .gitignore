@@ -1,0 +1,17 @@
+# Astro / Node
+node_modules/
+dist/
+.astro/
+
+# OS / editor
+.DS_Store
+
+# Squad AI-team framework (kept out of public portfolio repo)
+.squad/
+.copilot/
+.mcp.json
+.squad-workstream
+.gitattributes
+.github/agents/
+.github/workflows/squad-*.yml
+.github/workflows/sync-squad-labels.yml

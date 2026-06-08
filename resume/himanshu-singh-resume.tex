@@ -1,0 +1,260 @@
+%-------------------------
+% Resume in Latex
+% Author : Harshibar
+% Based off of: https://github.com/jakeryang/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+% only for pdflatex
+% \input{glyphtounicode}
+
+% fontawesome
+\usepackage{fontawesome5}
+
+% fixed width
+\usepackage[scale=0.90,lf]{FiraMono}
+
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+
+\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+\DeclareTextFontCommand{\texteb}{\ebseries}
+
+% custom underilne
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+
+% custom font: helvetica-style
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault} 
+%% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{0in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting - serif
+% \titleformat{\section}{
+%   \vspace{2pt} \scshape \raggedright\large % header section
+% }{}{0em}{}[\color{black} \titlerule \vspace{-5pt}]
+
+% TODO EBSERIES
+% sans serif sections
+\titleformat {\section}{
+    \bfseries \vspace{2pt} \raggedright \large % header section
+}{}{0em}{}[\color{light-grey} {\titlerule[2pt]} \vspace{-4pt}]
+
+% only for pdflatex
+% Ensure that generate pdf is machine readable/ATS parsable
+% \pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\ % top row of resume entry
+      \textit{#3} & {\color{dark-grey} \small #4}\\ % second row of resume entry
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{dark-grey}} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% CHANGED default leftmargin  0.15 in
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+\color{text-grey}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Himanshu Singh} \\ \vspace{5pt}
+    \small \faPhone* \hspace{2pt}\href{tel:+919585719381}{\myuline{+91 9585719381}} \hspace{1pt} $|$
+    \hspace{1pt} \faEnvelope \hspace{2pt}\href{mailto:singhhimanshu004@gmail.com}{\myuline{singhhimanshu004@gmail.com}} \hspace{1pt} $|$
+    \hspace{1pt} \faLinkedin \hspace{2pt}\href{https://www.linkedin.com/in/singhhimanshu004/}{\myuline{singhhimanshu004}} \hspace{1pt} $|$
+    \hspace{1pt} \faGithub \hspace{2pt}\href{https://github.com/singhhimanshu004}{\myuline{singhhimanshu004}}
+    \\ \vspace{2pt}
+    \faMapMarker* \hspace{2pt}\texttt{Noida, India}
+    \\ \vspace{-3pt}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Microsoft IDC}{Jan 2025 -- Present}
+      {Senior Software Engineer}{Noida, India}
+      \resumeItemListStart
+        \resumeItem{Built self-service provisioning for secured, ephemeral, tenant-isolated sandboxes used by security researchers for malware analysis and security research; reduced environment setup from several hours to \textbf{under 30 minutes}.}
+        \resumeItem{Strengthened research-platform isolation by building sandbox lifecycle management, access boundaries and workload separation, keeping research environments isolated from Microsoft dev and prod tenants.}
+        \resumeItem{Remediated \textbf{30+ S360} security and compliance findings across infrastructure, dependencies, configuration and deployment pipelines.}
+        \resumeItem{Reduced manual infrastructure delivery effort by \textbf{~50\%} by standardizing automation using Terraform, Bicep, ARM JSON, Python, Shell and C\#.}
+        \resumeItem{Standardized secured multicloud Kubernetes cluster delivery by building reusable templates for node-pool segmentation, network topology, workload-identity (WIF) pool separation and pre-built observability components (metrics, logs); delivered the first production cluster for a customer and made further cluster creation repeatable.}
+        \resumeItem{Baked observability into the cluster template --- dashboards, alerts and health checks --- to support reliability and availability targets for customer workloads.}
+        \resumeItem{Leveraged Generative AI and agentic AI to accelerate platform engineering tasks such as code generation, IaC review, test scaffolding and runbook automation; reduced implementation time for repeatable work by \textbf{~45\%}.}
+        \resumeItem{Built AI-assisted security triage and validation loops for S360 remediation and infra changes, moving fixes from investigation to reviewed changes \textbf{2--3x faster}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {JP Morgan Chase}{Jan 2024 -- Dec 2024}
+      {Lead Software Engineer}{Bangalore, India}
+      \resumeItemListStart
+        \resumeItem{Played a major role in facilitating Sybase exit for legacy applications by creating robust pipelines for Debezium CDC connectors.}
+        \resumeItem{Facilitated data movement to AWS PostgreSQL using JDBC connectors by creating custom config providers to support JPMC-specific authentication mechanisms.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {JP Morgan Chase}{Jan 2022 -- Dec 2023}
+      {Software Engineer III}{Bangalore, India}
+      \resumeItemListStart
+        \resumeItem{Increased adoption of AWS MSK by \textbf{30\%} in firm by creating fully managed replication service for migrating data from on-prem clusters to MSK.}
+        \resumeItem{Reduced time taken to migrate to new datacenter clusters from \textbf{15 days to 1 hour} by creating fully automated namespace migration pipeline.}
+        \resumeItem{Coordinated with other engineers to evaluate and improve software and hardware interfaces.}
+        \resumeItem{Reviewed project specifications and designed technology solutions that met or exceeded performance expectations.}
+        \resumeItem{Worked with software development and testing team members to design and develop robust solutions to meet client requirements for functionality, scalability, and performance.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {JP Morgan Chase}{Jan 2021 -- Dec 2021}
+      {Software Engineer II}{Bangalore, India}
+      \resumeItemListStart
+        \resumeItem{Reduced time and resource utilization for data source migration by \textbf{80\%} by creating Kafka Connect Control Plane supporting 30+ source and sink connectors.}
+        \resumeItem{Created orchestrator micro-service for building, patching and maintenance of Kafka clusters; brought down time taken to build and patch Kafka cluster from \textbf{2 days to 2 hours}.}
+        \resumeItem{Developed robust, scalable, modular and API-centric infrastructures.}
+        \resumeItem{Promoted experience with Kubernetes, Docker and Amazon Web Services.}
+        \resumeItem{Represented software applications engineering team during large and complex development projects.}
+        \resumeItem{Collaborated with clients to define solution requirements.}
+        \resumeItem{Informed internal personnel and external stakeholders of project milestones.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {JP Morgan Chase}{Jul 2017 -- Dec 2020}
+      {Associate}{Bangalore, India}
+      \resumeItemListStart
+        \resumeItem{Created monitoring framework to do canary health checks on Apache Kafka clusters which generates a real-time cluster health index --- currently used by over \textbf{12,000 applications} using Kafka for failover to DR cluster.}
+        \resumeItem{Created pipeline for automatic certificate renewal of hosts owned for Kafka clusters; significantly reduced manual time to create and renew certs from \textbf{1 day to 5 minutes}; currently over \textbf{1,500 certs} for Linux hosts get renewed through this.}
+        \resumeItem{Conducted product demonstrations to highlight features and redirect objections to positive aspects.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {VIT University}{Jul 2013 -- Jun 2017}
+      {B.Tech in Computer Science}{Vellore, India}
+      \resumeItemListStart
+        \resumeItem{Cum. GPA: 8.66 / 10.0}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Central Hindu Boys School}{2012}
+      {Schooling}{Varanasi, India}
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{SKILLS}
+ \begin{itemize}[leftmargin=0in, label={}]
+    \small{\item{
+     \textbf{Programming Languages} {: Python, Java, C\#, Shell, JavaScript, TypeScript, Angular}\vspace{2pt} \\
+     \textbf{Operating Systems} {: Linux, macOS, Windows, Unix}\vspace{2pt} \\
+     \textbf{Messaging \& Streaming} {: Kafka, Kafka Connect, Kafka Streams}\vspace{2pt} \\
+     \textbf{Cloud \& Containers} {: AWS, GCP, Azure, PCF, Docker, Kubernetes}\vspace{2pt} \\
+     \textbf{Infrastructure as Code} {: Terraform, Bicep, ARM JSON}\vspace{2pt} \\
+     \textbf{Frameworks} {: FastAPI, Spring Boot, Flask, Angular, AWS Lambda, API Gateway}\vspace{2pt} \\
+     \textbf{AI} {: Generative AI, Agentic AI}\vspace{2pt} \\
+     \textbf{Databases} {: Oracle, PostgreSQL}
+    }}
+ \end{itemize}
+
+%-----------CERTIFICATIONS-----------
+\section{CERTIFICATIONS}
+ \begin{itemize}[leftmargin=0in, label={}]
+    \small
+    \item HashiCorp Certified Terraform Associate (Dec 2022)
+    \item Certified Kubernetes Application Developer (CKAD) (Nov 2022)
+    \item AWS Certified Cloud Practitioner (Aug 2022)
+ \end{itemize}
+
+%-----------AWARDS-----------
+\section{AWARDS}
+ \begin{itemize}[leftmargin=0in, label={}]
+    \small
+    \item APAC CEO Award (Aug 2023)
+    \item Reward of Excellence (Jul 2020)
+    \item Winner, SEP Hackathon (Jul 2018)
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}

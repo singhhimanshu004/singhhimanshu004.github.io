@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PostCard from '../components/PostCard.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => {
+    if (a.data.featured !== b.data.featured) return Number(b.data.featured) - Number(a.data.featured);
+    return a.data.order - b.data.order;
+  });
+const featuredProjects = projects.slice(0, 3);
+const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Himanshu Singh | Lead Software Engineer" description="Portfolio for Himanshu Singh, a Lead Software Engineer focused on distributed systems, streaming infrastructure, platform engineering, Kafka, cloud, and Kubernetes.">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="stack-lg reading">
+        <p class="eyebrow">Open to senior, lead, and staff platform engineering roles</p>
+        <div class="stack">
+          <h1>Himanshu Singh</h1>
+          <p class="lead">Lead Software Engineer — distributed systems &amp; streaming infrastructure</p>
+          <p class="muted">I build platform infrastructure that makes distributed systems easier to operate at scale: Kafka control planes, migration automation, health monitoring, cloud replication, and secured Kubernetes environments. My work has reduced migration effort by 80%, cut Kafka cluster operations from days to hours, and supported reliability signals used by 12,000+ applications.</p>
+        </div>
+        <div class="button-row" aria-label="Primary actions">
+          <a class="button button-primary" href="/projects/">View Projects</a>
+          <a class="button" href="/resume.pdf" download>Download Resume</a>
+          <a class="button" href="/contact/">Contact Me</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-labelledby="proof-heading">
+        <p class="eyebrow" id="proof-heading">Recruiter scan</p>
+        <dl>
+          <div>
+            <dt>Current focus</dt>
+            <dd>Distributed systems, streaming infrastructure, platform engineering, and secured Kubernetes environments.</dd>
+          </div>
+          <div>
+            <dt>Strongest proof</dt>
+            <dd>Kafka Connect control plane, Kafka cluster orchestration, AWS MSK migration, and canary health monitoring at scale.</dd>
+          </div>
+          <div>
+            <dt>Stack signal</dt>
+            <dd>Kafka, Kafka Connect, Python, Java, Kubernetes, Docker, Terraform, AWS, GCP, Azure, and Linux.</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <SectionHeader eyebrow="Featured work" title="Platform projects with measurable operational impact." description="Selected case studies from Kafka control planes, migration automation, health monitoring, and secured cloud infrastructure." />
+      <div class="card-grid three">
+        {featuredProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-column grid">
+      <div class="stack-lg">
+        <SectionHeader eyebrow="Resume snapshot" title="Skimmable proof for recruiters." description="Lead and senior engineering experience across Microsoft Security and JP Morgan Chase, with deep work in platform automation, Kafka, cloud infrastructure, and Kubernetes." />
+        <div class="button-row">
+          <a class="button button-primary" href="/resume.pdf" download>Download Resume</a>
+          <a class="button" href="/resume/">View web resume</a>
+        </div>
+      </div>
+      <aside class="card stack" aria-labelledby="snapshot-heading">
+        <h3 id="snapshot-heading">Verified highlights</h3>
+        <ul class="split-list">
+          <li><strong>Platform engineering</strong><br /><span class="muted">Built Kafka and cloud infrastructure capabilities used by application and platform teams.</span></li>
+          <li><strong>Measured impact</strong><br /><span class="muted">Reduced migration effort by 80%, cut namespace migration from 15 days to 1 hour, and supported health signals used by 12,000+ applications.</span></li>
+          <li><strong>Cloud and Kubernetes</strong><br /><span class="muted">Works across AWS, GCP, Azure, Docker, Kubernetes, Terraform, Bicep, and secured infrastructure workflows.</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <SectionHeader eyebrow="Latest writing" title="Thinking in public." description="Technical notes on Kafka platform engineering, migration automation, and reliability lessons from real infrastructure work." />
+      <div class="card-grid three">
+        {latestPosts.map((post) => <PostCard post={post} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card stack-lg">
+      <div class="reading stack">
+        <p class="eyebrow">Contact</p>
+        <h2>Make the next step easy.</h2>
+        <p class="lead">Reach out for senior, lead, or staff platform and infrastructure engineering roles focused on distributed systems, cloud platforms, or developer-facing infrastructure.</p>
+      </div>
+      <div class="button-row">
+        <a class="button button-primary" href="mailto:singhhimanshu004@gmail.com" aria-label="Email Himanshu Singh at singhhimanshu004@gmail.com">Email Himanshu</a>
+        <a class="button" href="https://www.linkedin.com/in/singhhimanshu004/" target="_blank" rel="noopener noreferrer" aria-label="Himanshu Singh on LinkedIn">LinkedIn</a>
+        <a class="button" href="https://github.com/singhhimanshu004" target="_blank" rel="noopener noreferrer" aria-label="Himanshu Singh on GitHub">GitHub</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,63 @@
+<button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+  <span aria-hidden="true" data-theme-toggle-icon>◐</span>
+  <span data-theme-toggle-label>Theme</span>
+</button>
+
+<script is:inline>
+  (() => {
+    const storageKey = 'theme';
+    const root = document.documentElement;
+    const buttons = document.querySelectorAll('[data-theme-toggle]');
+    const prefersDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = () => root.dataset.theme || (prefersDark() ? 'dark' : 'light');
+
+    const paint = () => {
+      const theme = currentTheme();
+      buttons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(theme === 'dark'));
+        const icon = button.querySelector('[data-theme-toggle-icon]');
+        const label = button.querySelector('[data-theme-toggle-label]');
+        if (icon) icon.textContent = theme === 'dark' ? '☾' : '☀';
+        if (label) label.textContent = theme === 'dark' ? 'Dark' : 'Light';
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const nextTheme = currentTheme() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = nextTheme;
+        localStorage.setItem(storageKey, nextTheme);
+        paint();
+      });
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (!localStorage.getItem(storageKey)) paint();
+    });
+
+    paint();
+  })();
+</script>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    line-height: 1;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-hover);
+  }
+</style>

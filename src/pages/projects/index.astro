@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => {
+  if (a.data.featured !== b.data.featured) return Number(b.data.featured) - Number(a.data.featured);
+  return a.data.order - b.data.order;
+});
+---
+
+<BaseLayout title="Projects | Himanshu Singh" description="Selected platform engineering projects by Himanshu Singh, ordered with featured work first.">
+  <section class="page-header">
+    <div class="container reading">
+      <p class="eyebrow">Projects</p>
+      <h1>Proof through selected platform work.</h1>
+      <p class="lead">Six case studies covering Kafka control planes, cluster orchestration, health monitoring, certificate automation, AWS MSK migration, namespace migration, and secured Kubernetes infrastructure.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card-grid three">
+      {projects.map((project) => <ProjectCard project={project} headingLevel="h2" />)}
+    </div>
+  </section>
+</BaseLayout>

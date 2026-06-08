@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+type Post = CollectionEntry<'blog'>;
+
+interface Props {
+  post: Post;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { post, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+const { title, description, pubDate, tags } = post.data;
+const slug = post.id.replace(/\.(md|mdx)$/, '');
+const date = pubDate.toLocaleDateString('en', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<article class="post-card card">
+  <div class="stack">
+    <p class="subtle meta"><time datetime={pubDate.toISOString()}>{date}</time></p>
+    <div class="stack">
+      <Heading><a href={`/blog/${slug}/`}>{title}</a></Heading>
+      <p class="muted">{description}</p>
+    </div>
+    {tags.length > 0 && (
+      <ul class="pill-list" aria-label={`${title} tags`}>
+        {tags.map((tag) => <li class="pill">{tag}</li>)}
+      </ul>
+    )}
+  </div>
+</article>
+
+<style>
+  .post-card {
+    min-height: 100%;
+  }
+
+  .post-card h2,
+  .post-card h3 {
+    font-size: var(--text-2xl);
+  }
+
+  .post-card h2 a,
+  .post-card h3 a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .post-card h2 a:hover,
+  .post-card h3 a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .meta {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+</style>

@@ -1,0 +1,114 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/resume/', label: 'Resume' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<header class="site-header">
+  <nav class="container nav" aria-label="Primary navigation">
+    <a class="brand" href="/" aria-label="Himanshu Singh home">
+      <span class="brand-mark" aria-hidden="true">HS</span>
+      <span>Himanshu Singh</span>
+    </a>
+    <div class="nav-actions">
+      <ul class="nav-list">
+        {navItems.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+      <ThemeToggle />
+    </div>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+    backdrop-filter: blur(16px);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 4.25rem;
+    padding-block: var(--space-3);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-text);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .brand-mark {
+    display: inline-grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border-radius: var(--radius-md);
+    background: var(--color-accent);
+    color: var(--color-surface);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .nav-list {
+    display: none;
+    align-items: center;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-list a {
+    display: inline-flex;
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .nav-list a:hover,
+  .nav-list a[aria-current='page'] {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-hover);
+  }
+
+  @media (min-width: 48rem) {
+    .nav-list {
+      display: flex;
+    }
+  }
+</style>

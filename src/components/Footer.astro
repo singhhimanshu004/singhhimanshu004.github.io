@@ -1,0 +1,65 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="stack">
+      <p class="footer-title">Himanshu Singh</p>
+      <p class="muted">Lead Software Engineer building distributed systems, streaming infrastructure, cloud platforms, and secured Kubernetes environments.</p>
+    </div>
+    <nav aria-label="Social links">
+      <ul class="footer-links">
+        <li><a href="mailto:singhhimanshu004@gmail.com" aria-label="Email Himanshu Singh at singhhimanshu004@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/singhhimanshu004/" target="_blank" rel="me noopener noreferrer" aria-label="Himanshu Singh on LinkedIn">LinkedIn</a></li>
+        <li><a href="https://github.com/singhhimanshu004" target="_blank" rel="me noopener noreferrer" aria-label="Himanshu Singh on GitHub">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <small>© {year} Himanshu Singh. Built with Astro.</small>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+    padding-block: var(--space-10) var(--space-6);
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .footer-title {
+    color: var(--color-text);
+    font-weight: var(--weight-bold);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-weight: var(--weight-semibold);
+  }
+
+  .footer-bottom {
+    margin-top: var(--space-8);
+    color: var(--color-text-subtle);
+  }
+
+  @media (min-width: 48rem) {
+    .footer-grid {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+    }
+  }
+</style>
