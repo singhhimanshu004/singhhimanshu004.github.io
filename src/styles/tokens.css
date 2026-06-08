@@ -64,6 +64,10 @@
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
   --color-accent-soft: #dbeafe;
+  --color-accent-2: #7c3aed;
+  --color-accent-3: #0ea5e9;
+  --gradient-accent: linear-gradient(120deg, #2563eb 0%, #7c3aed 55%, #0ea5e9 100%);
+  --gradient-soft: linear-gradient(120deg, rgb(37 99 235 / 0.12), rgb(124 58 237 / 0.12) 55%, rgb(14 165 233 / 0.12));
   --color-focus-ring: rgb(37 99 235 / 0.35);
 
   --max-width-page: 70rem;
@@ -111,6 +115,10 @@
     --color-accent: #60a5fa;
     --color-accent-hover: #93c5fd;
     --color-accent-soft: #172554;
+    --color-accent-2: #a78bfa;
+    --color-accent-3: #38bdf8;
+    --gradient-accent: linear-gradient(120deg, #60a5fa 0%, #a78bfa 55%, #38bdf8 100%);
+    --gradient-soft: linear-gradient(120deg, rgb(96 165 250 / 0.16), rgb(167 139 250 / 0.16) 55%, rgb(56 189 248 / 0.16));
     --color-focus-ring: rgb(96 165 250 / 0.4);
   }
 }
@@ -132,6 +140,10 @@
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
   --color-accent-soft: #dbeafe;
+  --color-accent-2: #7c3aed;
+  --color-accent-3: #0ea5e9;
+  --gradient-accent: linear-gradient(120deg, #2563eb 0%, #7c3aed 55%, #0ea5e9 100%);
+  --gradient-soft: linear-gradient(120deg, rgb(37 99 235 / 0.12), rgb(124 58 237 / 0.12) 55%, rgb(14 165 233 / 0.12));
   --color-focus-ring: rgb(37 99 235 / 0.35);
 }
 
@@ -152,5 +164,9 @@
   --color-accent: #60a5fa;
   --color-accent-hover: #93c5fd;
   --color-accent-soft: #172554;
+  --color-accent-2: #a78bfa;
+  --color-accent-3: #38bdf8;
+  --gradient-accent: linear-gradient(120deg, #60a5fa 0%, #a78bfa 55%, #38bdf8 100%);
+  --gradient-soft: linear-gradient(120deg, rgb(96 165 250 / 0.16), rgb(167 139 250 / 0.16) 55%, rgb(56 189 248 / 0.16));
   --color-focus-ring: rgb(96 165 250 / 0.4);
 }
