@@ -7,12 +7,12 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<BaseLayout title="Blog | Himanshu Singh" description="Technical writing and project notes by Himanshu Singh on platform engineering, Kafka, Kubernetes, cloud infrastructure, automation, and reliability.">
+<BaseLayout title="Blog | Himanshu Singh" description="In-depth technical writing by Himanshu Singh — building tools from scratch, algorithms, systems programming, and the engineering ideas behind them.">
   <section class="page-header">
     <div class="container reading">
       <p class="eyebrow">Blog</p>
       <h1>Technical writing and notes.</h1>
-      <p class="lead">Practical notes from building platform infrastructure — Kafka and streaming systems, secured Kubernetes, migration automation, observability, and reliability lessons learned along the way.</p>
+    <p class="lead">In-depth posts on building tools from scratch and the engineering ideas behind them — compression, parsing, error correction, probabilistic data structures, and systems programming.</p>
     </div>
   </section>
 

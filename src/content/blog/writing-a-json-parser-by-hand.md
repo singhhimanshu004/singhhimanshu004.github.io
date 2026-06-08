@@ -7,6 +7,9 @@ tags:
   - "Compilers"
   - "Python"
   - "Software Engineering"
+heroImage: "/blog/json-pipeline.svg"
+heroAlt: "A two-stage JSON parser pipeline: raw text flows through a lexer into tokens, then through an LL(1) recursive-descent parser into a Python value."
+heroCaption: "Two stages with one clean seam: the lexer validates locally, the parser validates arrangement and builds the tree."
 draft: false
 ---
 

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect width="820" height="360" fill="#f7f8fa"/>
+  <text x="32" y="44" font-size="20" font-weight="700" fill="#1f2937">A Bloom filter stores bits, not keys</text>
+  <text x="32" y="70" font-size="14" fill="#6b7280">k hash functions flip k bits per key. A lookup with any unset bit is a definite "no".</text>
+
+  <!-- key -->
+  <rect x="40" y="150" width="120" height="48" rx="10" fill="#2563eb"/>
+  <text x="100" y="180" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">"cat"</text>
+
+  <!-- hash funcs -->
+  <g>
+    <rect x="220" y="110" width="92" height="34" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="266" y="132" font-size="12" fill="#374151" text-anchor="middle" font-family="ui-monospace, monospace">h&#8321;(cat)</text>
+    <rect x="220" y="157" width="92" height="34" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="266" y="179" font-size="12" fill="#374151" text-anchor="middle" font-family="ui-monospace, monospace">h&#8322;(cat)</text>
+    <rect x="220" y="204" width="92" height="34" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="266" y="226" font-size="12" fill="#374151" text-anchor="middle" font-family="ui-monospace, monospace">h&#8323;(cat)</text>
+  </g>
+
+  <defs>
+    <marker id="a2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <g stroke="#9ca3af" stroke-width="2" marker-end="url(#a2)">
+    <line x1="162" y1="170" x2="214" y2="127"/>
+    <line x1="162" y1="174" x2="214" y2="174"/>
+    <line x1="162" y1="178" x2="214" y2="221"/>
+  </g>
+
+  <!-- bit array -->
+  <text x="360" y="148" font-size="13" font-weight="700" fill="#1f2937">bit array (m bits)</text>
+  <g font-size="13" text-anchor="middle">
+    <!-- indices 0..9 -->
+    <g>
+      <rect x="360" y="160" width="40" height="40" fill="#fff" stroke="#d1d5db"/>
+      <text x="380" y="186" fill="#9ca3af">0</text>
+      <rect x="400" y="160" width="40" height="40" fill="#2563eb" stroke="#1d4ed8"/>
+      <text x="420" y="186" fill="#fff" font-weight="700">1</text>
+      <rect x="440" y="160" width="40" height="40" fill="#fff" stroke="#d1d5db"/>
+      <text x="460" y="186" fill="#9ca3af">0</text>
+      <rect x="480" y="160" width="40" height="40" fill="#2563eb" stroke="#1d4ed8"/>
+      <text x="500" y="186" fill="#fff" font-weight="700">1</text>
+      <rect x="520" y="160" width="40" height="40" fill="#fff" stroke="#d1d5db"/>
+      <text x="540" y="186" fill="#9ca3af">0</text>
+      <rect x="560" y="160" width="40" height="40" fill="#fff" stroke="#d1d5db"/>
+      <text x="580" y="186" fill="#9ca3af">0</text>
+      <rect x="600" y="160" width="40" height="40" fill="#2563eb" stroke="#1d4ed8"/>
+      <text x="620" y="186" fill="#fff" font-weight="700">1</text>
+      <rect x="640" y="160" width="40" height="40" fill="#fff" stroke="#d1d5db"/>
+      <text x="660" y="186" fill="#9ca3af">0</text>
+      <rect x="680" y="160" width="40" height="40" fill="#fff" stroke="#d1d5db"/>
+      <text x="700" y="186" fill="#9ca3af">0</text>
+      <rect x="720" y="160" width="40" height="40" fill="#fff" stroke="#d1d5db"/>
+      <text x="740" y="186" fill="#9ca3af">0</text>
+    </g>
+  </g>
+
+  <g font-size="13">
+    <circle cx="372" cy="252" r="7" fill="#16a34a"/>
+    <text x="388" y="257" fill="#374151">All k bits set &#8594; <tspan font-weight="700">probably present</tspan> (small false-positive chance)</text>
+    <circle cx="372" cy="284" r="7" fill="#dc2626"/>
+    <text x="388" y="289" fill="#374151">Any bit unset &#8594; <tspan font-weight="700">definitely absent</tspan> (never a false negative)</text>
+  </g>
+</svg>

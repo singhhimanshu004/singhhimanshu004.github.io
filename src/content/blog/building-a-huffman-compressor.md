@@ -7,6 +7,9 @@ tags:
   - "Algorithms"
   - "Go"
   - "Systems Programming"
+heroImage: "/blog/huffman-tree.svg"
+heroAlt: "A Huffman tree assigning short bit-codes to frequent symbols and longer codes to rare ones, with the resulting prefix-code table."
+heroCaption: "Frequent symbols sit near the root and get short codes; every symbol is a leaf, so the codes are prefix-free."
 draft: false
 ---
 

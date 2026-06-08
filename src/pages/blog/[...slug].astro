@@ -16,11 +16,11 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
-const { title, description, pubDate, tags } = post.data;
+const { title, description, pubDate, tags, heroImage, heroAlt, heroCaption } = post.data;
 const date = pubDate.toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<BaseLayout title={`${title} | Blog | Himanshu Singh`} description={description}>
+<BaseLayout title={`${title} | Blog | Himanshu Singh`} description={description} image={heroImage}>
   <article>
     <header class="page-header">
       <div class="container reading">
@@ -35,6 +35,15 @@ const date = pubDate.toLocaleDateString('en', { year: 'numeric', month: 'long', 
         )}
       </div>
     </header>
+
+    {heroImage && (
+      <div class="container reading">
+        <figure class="hero-figure">
+          <img src={heroImage} alt={heroAlt ?? ''} loading="eager" />
+          {heroCaption && <figcaption class="subtle">{heroCaption}</figcaption>}
+        </figure>
+      </div>
+    )}
 
     <section class="section">
       <div class="container prose reading">
