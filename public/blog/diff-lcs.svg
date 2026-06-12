@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect width="820" height="360" fill="#f7f8fa"/>
+  <text x="32" y="44" font-size="20" font-weight="700" fill="#1f2937">diff walks an LCS table backwards</text>
+  <text x="32" y="70" font-size="14" fill="#6b7280">The longest common subsequence is the spine; everything off it is an insert or a delete.</text>
+
+  <!-- grid -->
+  <g font-family="ui-monospace, monospace" font-size="13">
+    <!-- column headers (file B) -->
+    <text x="150" y="108" fill="#6b7280" text-anchor="middle">apple</text>
+    <text x="210" y="108" fill="#6b7280" text-anchor="middle">pear</text>
+    <text x="270" y="108" fill="#6b7280" text-anchor="middle">plum</text>
+    <!-- row headers (file A) -->
+    <text x="84" y="148" fill="#6b7280" text-anchor="end">apple</text>
+    <text x="84" y="200" fill="#6b7280" text-anchor="end">grape</text>
+    <text x="84" y="252" fill="#6b7280" text-anchor="end">plum</text>
+  </g>
+
+  <!-- cells -->
+  <g font-family="ui-monospace, monospace" font-size="14" font-weight="700" text-anchor="middle">
+    <rect x="120" y="125" width="60" height="44" rx="8" fill="#2563eb"/>
+    <text x="150" y="153" fill="#fff">1</text>
+    <rect x="180" y="125" width="60" height="44" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="210" y="153" fill="#374151">1</text>
+    <rect x="240" y="125" width="60" height="44" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="270" y="153" fill="#374151">1</text>
+
+    <rect x="120" y="177" width="60" height="44" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="150" y="205" fill="#374151">1</text>
+    <rect x="180" y="177" width="60" height="44" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="210" y="205" fill="#374151">1</text>
+    <rect x="240" y="177" width="60" height="44" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="270" y="205" fill="#374151">1</text>
+
+    <rect x="120" y="229" width="60" height="44" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="150" y="257" fill="#374151">1</text>
+    <rect x="180" y="229" width="60" height="44" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="210" y="257" fill="#374151">1</text>
+    <rect x="240" y="229" width="60" height="44" rx="8" fill="#7c3aed"/>
+    <text x="270" y="257" fill="#fff">2</text>
+  </g>
+
+  <!-- backtrack arrow -->
+  <defs>
+    <marker id="da" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <path d="M252 235 L160 159" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 4" fill="none" marker-end="url(#da)"/>
+
+  <!-- resulting edit script -->
+  <g font-family="ui-monospace, monospace" font-size="14">
+    <text x="430" y="120" font-size="13" font-weight="700" fill="#6b7280" font-family="ui-sans-serif, system-ui, sans-serif">edit script</text>
+    <rect x="430" y="135" width="340" height="34" rx="8" fill="#eef2ff"/>
+    <text x="448" y="157" fill="#374151"><tspan> </tspan>apple</text>
+    <rect x="430" y="175" width="340" height="34" rx="8" fill="#fee2e2"/>
+    <text x="448" y="197" fill="#b91c1c">- grape</text>
+    <rect x="430" y="215" width="340" height="34" rx="8" fill="#dcfce7"/>
+    <text x="448" y="237" fill="#15803d">+ pear</text>
+    <rect x="430" y="255" width="340" height="34" rx="8" fill="#eef2ff"/>
+    <text x="448" y="277" fill="#374151"><tspan> </tspan>plum</text>
+  </g>
+
+  <text x="32" y="330" font-size="13" fill="#9ca3af">table[i][j] = LCS length · diagonal = match · the path you don't take becomes +/-</text>
+</svg>

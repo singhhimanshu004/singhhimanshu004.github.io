@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect width="820" height="340" fill="#f7f8fa"/>
+  <text x="32" y="44" font-size="20" font-weight="700" fill="#1f2937">Every jq filter maps one value to a stream</text>
+  <text x="32" y="70" font-size="14" fill="#6b7280">.users[] | .name — the pipe feeds each left output into the right, flattening as it goes.</text>
+
+  <defs>
+    <marker id="ja" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <!-- input -->
+  <rect x="36" y="150" width="150" height="60" rx="12" fill="#2563eb"/>
+  <text x="111" y="178" font-size="13" font-weight="700" fill="#fff" text-anchor="middle" font-family="ui-monospace, monospace">{users:[…]}</text>
+  <text x="111" y="198" font-size="11" fill="#dbeafe" text-anchor="middle">1 input value</text>
+
+  <!-- filter 1: .users[] -->
+  <rect x="250" y="150" width="150" height="60" rx="12" fill="#7c3aed"/>
+  <text x="325" y="184" font-size="15" font-weight="700" fill="#fff" text-anchor="middle" font-family="ui-monospace, monospace">.users[]</text>
+
+  <line x1="186" y1="180" x2="248" y2="180" stroke="#9ca3af" stroke-width="2.5" marker-end="url(#ja)"/>
+
+  <!-- stream of 3 -->
+  <line x1="400" y1="180" x2="470" y2="135" stroke="#9ca3af" stroke-width="2" marker-end="url(#ja)"/>
+  <line x1="400" y1="180" x2="470" y2="180" stroke="#9ca3af" stroke-width="2" marker-end="url(#ja)"/>
+  <line x1="400" y1="180" x2="470" y2="225" stroke="#9ca3af" stroke-width="2" marker-end="url(#ja)"/>
+
+  <g font-family="ui-monospace, monospace" font-size="12" text-anchor="middle">
+    <rect x="472" y="118" width="120" height="34" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="532" y="140" fill="#374151">{name:"ann"}</text>
+    <rect x="472" y="163" width="120" height="34" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="532" y="185" fill="#374151">{name:"bob"}</text>
+    <rect x="472" y="208" width="120" height="34" rx="8" fill="#fff" stroke="#d1d5db"/>
+    <text x="532" y="230" fill="#374151">{name:"cy"}</text>
+  </g>
+
+  <!-- filter 2: .name applied to each -->
+  <rect x="636" y="150" width="64" height="60" rx="12" fill="#0ea5e9"/>
+  <text x="668" y="184" font-size="13" font-weight="700" fill="#fff" text-anchor="middle" font-family="ui-monospace, monospace">.name</text>
+  <g stroke="#9ca3af" stroke-width="2" marker-end="url(#ja)">
+    <line x1="592" y1="135" x2="634" y2="172"/>
+    <line x1="592" y1="180" x2="634" y2="180"/>
+    <line x1="592" y1="225" x2="634" y2="188"/>
+  </g>
+
+  <!-- outputs -->
+  <g font-family="ui-monospace, monospace" font-size="13" fill="#15803d">
+    <text x="724" y="140">"ann"</text>
+    <text x="724" y="185">"bob"</text>
+    <text x="724" y="230">"cy"</text>
+  </g>
+  <g stroke="#9ca3af" stroke-width="2" marker-end="url(#ja)">
+    <line x1="700" y1="172" x2="718" y2="135"/>
+    <line x1="700" y1="180" x2="718" y2="180"/>
+    <line x1="700" y1="188" x2="718" y2="225"/>
+  </g>
+
+  <text x="32" y="318" font-size="13" fill="#9ca3af">eval(node, input) → []any · the pipe is "for each left output, run the right"</text>
+</svg>
