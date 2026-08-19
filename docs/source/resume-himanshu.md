@@ -1,8 +1,8 @@
-# Himanshu Singh — Resume (source of truth, from user-provided LaTeX)
+# Himanshu Singh — Resume (source of truth, updated August 2026)
 
 ## Identity
 - Name: Himanshu Singh
-- Title: Lead Software Engineer
+- Title: Senior Software Engineer
 - Phone: +91 9585719381
 - Email: singhhimanshu004@gmail.com
 - LinkedIn: https://www.linkedin.com/in/singhhimanshu004/
@@ -11,16 +11,11 @@
 
 ## Experience
 ### Microsoft IDC — Senior Software Engineer (Jan 2025 – Present, Noida, UP)
-Joined the Research Efficiency Platform team within Microsoft Security (2025). The platform enables security researchers to provision secured, ephemeral sandboxes in a self-service way for malware analysis and other security research — kept strictly isolated from Microsoft's other dev and prod tenants.
-- Build features on a self-service platform that provisions secured, ephemeral, isolated sandboxes for security researchers (malware analysis and broader security research).
-- Improve researcher productivity by adding capabilities that streamline and aid their research workflows.
-- Ensure strong security posture and tenant isolation; continuously remediate and stay on top of S360 security vulnerabilities.
-- (Earlier framing) Contributed to Lab-as-a-Service and multicloud secured Kubernetes infrastructure.
-
-**Multicloud Kubernetes team (from Mar 2025):**
-- Deliver secured Kubernetes clusters with pre-built infrastructure components, enabling customers to run their workflows on the delivered clusters.
-- Clusters ship with observability, scalability, and resiliency baked in.
-- Tech stack: Python, Shell scripting, Terraform, C#, Docker, Kubernetes, GCP, AWS, Bicep, ARM (JSON) templates, and Generative AI.
+- Drive infrastructure for malware analysis and remediation within the Security org, designing ephemeral, fully isolated sandboxes across dedicated Azure tenants detached from Microsoft's corporate environment.
+- Consolidated fragmented research environments into a single self-service lab platform where researchers compose only the tooling they need while the team owns provisioning, vulnerability management, and continuous patching.
+- Lead the multicloud effort extending an Azure-native AKS Kubernetes provisioning service to GCP and AWS while adopting each provider's native patterns.
+- Freed internal compute capacity for revenue-generating and external-customer workloads by routing usage to best-fit clouds.
+- Built end-to-end automation across design, delivery, and review workflows using GitHub Copilot and Copilot CLI, compressing delivery cycles from months to days.
 
 ### JP Morgan Chase — Lead Software Engineer (Jan 2024 – Dec 2024, Bangalore, KA)
 - Played a major role in facilitating Sybase exit for legacy applications by creating robust pipelines for Debezium CDC connectors.
@@ -48,14 +43,13 @@ Joined the Research Efficiency Platform team within Microsoft Security (2025). T
 - Central Hindu Boys School, Varanasi, Grad. Jun 2012
 
 ## Skills
-- Languages: Python, Java, C#, Shell, JavaScript, TypeScript, Angular
-- OS: Linux, macOS, Windows, Unix
+- Languages: Python, Java, Shell, JavaScript, TypeScript
 - Messaging/Streaming: Kafka, Kafka Connect, Kafka Streams
-- Cloud/Containers: AWS, GCP, Azure, PCF, Docker, Kubernetes
-- IaC: Terraform, Bicep, ARM (JSON) templates
+- Cloud/Containers: Azure (AKS), AWS, GCP, Kubernetes, Docker, Helm, Terraform, PCF
 - Frameworks: FastAPI, SpringBoot, Flask, Angular, AWS Lambda, API Gateway
 - Databases: Oracle, PostgreSQL
-- Other: Generative AI, CDC (Debezium), observability, platform/infra engineering
+- AI/Automation: GitHub Copilot, Copilot CLI, LLM-assisted system design and code review, agentic AI workflows, end-to-end delivery automation
+- Practices: Distributed systems, multicloud, IaC, CDC, CI/CD, microservices, DR/failover, vulnerability management
 
 ## Certifications
 - HashiCorp Certified Terraform Associate (Dec 2022)
